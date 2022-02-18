@@ -1,0 +1,11 @@
+Moving grid
+RandomShape
+Raster modification (pixels)
+Grille circulaire
+Fonction de grille en normalisée ?
+Couches (fixe puis animée)
+
+
+Plus tard
+Musique gen
+Paroles gen

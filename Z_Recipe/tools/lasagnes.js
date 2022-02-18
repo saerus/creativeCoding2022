@@ -1,0 +1,6 @@
+class Lasagnes {
+    constructor() {
+    }
+    get() {
+    }
+}
