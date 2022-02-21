@@ -17,9 +17,9 @@ function setup() {
     grid = new Grid(9, 200);
     for(let y=0; y<200; y+=1) {
         for(let x=0; x<9; x+=1) {
-            let newDrawable = new Square(grid.getCornerA(x, y), grid.getCornerA(x+1, y+1));
+            // let newDrawable = new Square(grid.getCornerA(x, y), grid.getCornerA(x+1, y+1));
             // let newDrawable = new SquareNoRandom(grid.getCornerA(x, y), grid.getCornerA(x+1, y+1), x, y);
-            // let newDrawable = new SquareNoRandomAnimated(grid.getCornerA(x, y), grid.getCornerA(x+1, y+1), x, y);
+            let newDrawable = new SquareNoRandomAnimated(grid.getCornerA(x, y), grid.getCornerA(x+1, y+1), x, y);
             drawables.push(newDrawable);
         }
     }
@@ -36,7 +36,7 @@ function drawOnce() {
     noStroke();
 
     drawables.forEach((t)=>{
-        // t.update();
+        t.update();
         t.draw();
     });
 }
