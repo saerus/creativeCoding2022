@@ -2,10 +2,10 @@ let grid;
 let drawables = [];
 let marching;
 let marching2;
-let hh;
+let sourceA;
 // P5JS preload
 function preload() {
-    hh = loadImage("assets/hh.png");
+    sourceA = loadImage("assets/hh.png");
 }
 // user input
 function mousePressed() {
@@ -14,12 +14,12 @@ function mousePressed() {
 // P5JS setup
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    hh.loadPixels();
+    sourceA.loadPixels();
 
     pixelDensity(1);
     rectMode(CORNERS);
-    grid = new Grid(20, 40);
-    marching = new MarchingSquares(50, 100);
+    grid = new Grid(200, 400);
+    marching = new MarchingSquares(200, 400);
     // marching2 = new MarchingSquares(20, 40);
         // drawOnce();
 }

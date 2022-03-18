@@ -41,18 +41,17 @@ class MarchingSquares {
             let yoff = 0;
             for (let j = 0; j < this.rows; j++) {
                 let jNormalized = j/this.rows;
+                // version noise !
                 // this.field[i][j] = float(this.noise.noise3D(xoff, yoff, this.zoff));
-                let x = floor(iNormalized*hh.width);
-                let y = floor(jNormalized*hh.height);
+                // version IMG
+                let x = floor(iNormalized*sourceA.width);
+                let y = floor(jNormalized*sourceA.height);
                 let index = (x + y * width) * 4;
-                let col = hh.pixels[index+0]/255.0;
+                let col = sourceA.pixels[index+0]/255.0;
                 this.field[i][j] = col-mouseY/height;
-                // console.log(col);
-                // this.field[i][j] = hh.get(10, 10);
                 yoff += this.increment;
             }
         }
-        // console.log(hh.get(10, 10)[0]);
         this.zoff += 0.001;
 
         //for (let i = 0; i < cols; i++) {
