@@ -4,6 +4,8 @@ Raster modification (pixels)
 Grille circulaire
 Fonction de grille en normalisée ?
 Couches (fixe puis animée)
+dithering
+
 
 
 Plus tard

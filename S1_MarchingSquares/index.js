@@ -1,11 +1,11 @@
 let grid;
-let font;
-let sourceA;
 let drawables = [];
+let marching;
+let marching2;
+let hh;
 // P5JS preload
 function preload() {
-    font = loadFont('assets/Graphik-Bold.otf');
-    sourceA = loadImage("assets/hh.png");
+    hh = loadImage("assets/hh.png");
 }
 // user input
 function mousePressed() {
@@ -14,15 +14,14 @@ function mousePressed() {
 // P5JS setup
 function setup() {
     createCanvas(windowWidth, windowHeight);
+    hh.loadPixels();
+
     pixelDensity(1);
     rectMode(CORNERS);
-    grid = new Grid(20, 50);
-    for(i=0; i<50; i+=2) {
-        let x = 5*sin(i/5)+0;
-        let y = i;
-        let newDrawable = new AnimatedText("open source", grid.getCornerA(x, y), grid.getCornerA(x+20, y+2), i/5);
-        drawables.push(newDrawable);
-    }
+    grid = new Grid(20, 40);
+    marching = new MarchingSquares(50, 100);
+    // marching2 = new MarchingSquares(20, 40);
+        // drawOnce();
 }
 // P5JS draw
 function draw() {
@@ -32,6 +31,10 @@ function draw() {
 function drawOnce() {
     background(255);
     stroke(0);
+    strokeWeight(5);
+    marching.draw();
+    // marching2.draw();
+    strokeWeight(1);
     grid.draw();
     noStroke();
 

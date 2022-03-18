@@ -1,11 +1,9 @@
 let grid;
 let font;
-let sourceA;
 let drawables = [];
 // P5JS preload
 function preload() {
     font = loadFont('assets/Graphik-Bold.otf');
-    sourceA = loadImage("assets/hh.png");
 }
 // user input
 function mousePressed() {
@@ -16,12 +14,20 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     pixelDensity(1);
     rectMode(CORNERS);
-    grid = new Grid(20, 50);
-    for(i=0; i<50; i+=2) {
-        let x = 5*sin(i/5)+0;
-        let y = i;
-        let newDrawable = new AnimatedText("open source", grid.getCornerA(x, y), grid.getCornerA(x+20, y+2), i/5);
+    grid = new Grid(20, 60);
+    let y = 0;
+    let h = 0.25;
+    for(i=0; i<20; i++) {
+        // console.log(x, y, w, w);
+        let newDrawable = new AnimatedText("-- think open source --", 0, y, 1, y+h, i/10);
         drawables.push(newDrawable);
+        y+=h;
+        h*=0.7;
+    }
+}
+function mouseMoved() {
+    if(grid) {
+        grid.set(mouseX/width*500+1, mouseY/height*500+1);
     }
 }
 // P5JS draw
