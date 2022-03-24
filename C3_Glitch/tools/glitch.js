@@ -17,7 +17,7 @@ class Glitch {
     }
     draw(){
         image(this.surface, 0, 0);
-    }
+    }   
     getXY(w, i) {
         let px = i/4;
         let y = floor(px/w);

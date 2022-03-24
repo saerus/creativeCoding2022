@@ -27,6 +27,7 @@ function setup() {
 // P5JS draw
 function draw() {
     drawOnce();
+    //   filter(BLUR, 3);
 }
 // P5JS drawOnce
 function drawOnce() {

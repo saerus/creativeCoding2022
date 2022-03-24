@@ -18,8 +18,8 @@ function setup() {
 
     pixelDensity(1);
     rectMode(CORNERS);
-    grid = new Grid(200, 400);
-    marching = new MarchingSquares(200, 400);
+    grid = new Grid(20, 40);
+    marching = new MarchingSquares(20, 40);
     // marching2 = new MarchingSquares(20, 40);
         // drawOnce();
 }
