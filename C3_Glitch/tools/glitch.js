@@ -8,16 +8,27 @@ class Glitch {
         this.surface.updatePixels();
     }
     modify() {
-        for(let i = 0; i<this.surface.pixels.length; i+=4) {
-            this.surface.pixels[i] = 127; // reds
-            this.surface.pixels[i+1] = 127; // greens
-            this.surface.pixels[i+2] = 0; // blues
-            this.surface.pixels[i+3] = 255; // alphas
+        let distance = 500;
+        for(let i = 4; i<this.surface.pixels.length; i++) {
+            let pxPos = this.getXY(this.surface.width, i);
+            let n = round(noise(round(pxPos.x/50), (pxPos.y/50))*distance-distance/2)*4;
+            this.surface.pixels[i] = this.surface.pixels[i-n];
         }
     }
+
+
+    getXY(w, i) {
+        let px = i/4;
+        let y = floor(px/w);
+        let x = px-y*w;
+        return {
+            x, y,
+        }
+    }
+
     draw(){
         image(this.surface, 0, 0);
-    }   
+    }
     getXY(w, i) {
         let px = i/4;
         let y = floor(px/w);
