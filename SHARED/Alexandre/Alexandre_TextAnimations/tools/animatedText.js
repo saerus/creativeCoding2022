@@ -27,6 +27,14 @@ class AnimatedText {
         this.qttY = qttY;
         this.visible = false;
     }
+    setDefilSpeed(s) {
+        this.defilSpeed = s;
+    }
+
+
+
+
+    // Pas besoin de ca ici !!
     //GRID
     getW() {
         return width / this.qttX;
@@ -83,6 +91,11 @@ class AnimatedText {
             d: getCornerD(x, y),
         }
     }
+
+
+
+
+
     drawSentenceCenter(){
         textSize(this.textSize);
         text(this.arrayBase.join("").toUpperCase(),this.alignCenterX,this.alignCenterY);
@@ -97,12 +110,12 @@ class AnimatedText {
         for (let a = 0; a < this.qttX + 1; a++) {
             for (let b = 0; b < this.qttY + 1; b++) {
                 text(this.arrayBase.join("").toUpperCase(),a*(this.getW())+((this.getW()/2)-(this.arrayBase.length*this.textSize)/4),b*this.getH()-((this.getH()/2)-this.textSize/2));
-            }    
+            }
         }
     }
     drawWordsDrippingEffect() {
         textSize(this.textSize);
-        
+
         let arrayBase2 = this.sentenceBase.split("");
         let arrayFrench2 = this.sentenceFr.split("");
         let arrayRussian2 = this.sentenceOther.split("");
@@ -116,12 +129,12 @@ class AnimatedText {
                 let randomPos = floor(random(0,arrayBase2.length));
                 arrayBase2[position+a] = arrayRussian2[position+b];
                 text(arrayBase2.join("").toUpperCase(),a*(this.getW())+((this.getW()/2)-(this.arrayBase.length*this.textSize)/4),b*this.getH()-((this.getH()/2)-this.textSize/2));
-            }    
+            }
         }
     }
     drawLeftToRight() {
         textSize(this.textSize);
-        
+
         let arrayBase2 = this.sentenceBase.split("");
         let arrayFrench2 = this.sentenceFr.split("");
         let arrayRussian2 = this.sentenceOther.split("");
@@ -133,9 +146,9 @@ class AnimatedText {
             let randomPos = floor(random(0,arrayBase2.length));
                 arrayBase2[randomPos] = arrayRussian2[randomPos];
             for (let b = 0; b < this.qttY + 1; b++) {
-                
+
                 text(arrayBase2.join("").toUpperCase(),a*(this.getW())+((this.getW()/2)-(this.arrayBase.length*this.textSize)/4),b*this.getH()-((this.getH()/2)-this.textSize/2));
-            }    
+            }
         }
     }
 }

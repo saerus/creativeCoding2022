@@ -25,60 +25,62 @@ class MirrorThing {
         image(imgMiddle, 0, imgTop.height - d, imgMiddle.width, d * 1);
         image(imgBottom, 0, newHeight/2+d);
     }
-    //GRID
-    getW() {
-        return width / this.qttX;
-    }
-    getH() {
-        return height / this.qttY;
-    }
-    getXfrom01(x) {
-        return floor(x*this.qttX);
-    }
-    getYfrom01(y) {
-        return floor(y*this.qttY);
-    }
-    getCornerA(x, y) {
-        x = floor(x);
-        y = floor(y);
-        return createVector(x * this.getW(), y * this.getH());
-    }
-    getCornerB(x, y) {
-        x = floor(x);
-        y = floor(y);
-        return createVector((x+1) * this.getW(), y * this.getH());
-    }
-    getCornerC(x, y) {
-        x = floor(x);
-        y = floor(y);
-        return createVector((x+1) * this.getW(), (y+1) * this.getH());
-    }
-    getCornerD(x, y) {
-        x = floor(x);
-        y = floor(y);
-        return createVector(x * this.getW(), (y+1) * this.getH());
-    }
-    getMiddle(x, y) {
-        x = floor(x);
-        y = floor(y);
-        return createVector((x+0.5) * this.getW(), (y+0.5) * this.getH());
-    }
-    getCornersAC(x, y) {
-        x = floor(x);
-        y = floor(y);
-        return {
-            a: getCornerA(x, y),
-            c: getCornerC(x, y),
-        }
-    }
-    getCornersABCD(x, y) {
-        x = floor(x);
-        y = floor(y);
-        return {
-            a: getCornerA(x, y),
-            b: getCornerB(x, y),
-            c: getCornerC(x, y),
-            d: getCornerD(x, y),
-        }
-    }
+    // Tout ca est inutile ici !!
+
+    // //GRID
+    // getW() {
+    //     return width / this.qttX;
+    // }
+    // getH() {
+    //     return height / this.qttY;
+    // }
+    // getXfrom01(x) {
+    //     return floor(x*this.qttX);
+    // }
+    // getYfrom01(y) {
+    //     return floor(y*this.qttY);
+    // }
+    // getCornerA(x, y) {
+    //     x = floor(x);
+    //     y = floor(y);
+    //     return createVector(x * this.getW(), y * this.getH());
+    // }
+    // getCornerB(x, y) {
+    //     x = floor(x);
+    //     y = floor(y);
+    //     return createVector((x+1) * this.getW(), y * this.getH());
+    // }
+    // getCornerC(x, y) {
+    //     x = floor(x);
+    //     y = floor(y);
+    //     return createVector((x+1) * this.getW(), (y+1) * this.getH());
+    // }
+    // getCornerD(x, y) {
+    //     x = floor(x);
+    //     y = floor(y);
+    //     return createVector(x * this.getW(), (y+1) * this.getH());
+    // }
+    // getMiddle(x, y) {
+    //     x = floor(x);
+    //     y = floor(y);
+    //     return createVector((x+0.5) * this.getW(), (y+0.5) * this.getH());
+    // }
+    // getCornersAC(x, y) {
+    //     x = floor(x);
+    //     y = floor(y);
+    //     return {
+    //         a: getCornerA(x, y),
+    //         c: getCornerC(x, y),
+    //     }
+    // }
+    // getCornersABCD(x, y) {
+    //     x = floor(x);
+    //     y = floor(y);
+    //     return {
+    //         a: getCornerA(x, y),
+    //         b: getCornerB(x, y),
+    //         c: getCornerC(x, y),
+    //         d: getCornerD(x, y),
+    //     }
+    // }
 }
