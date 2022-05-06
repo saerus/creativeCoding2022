@@ -29,13 +29,15 @@ class Effect {
         }
 
         //var imagechosen = random(listeimages);
-        this.imagechosen++;
+        if(frameCount%5 == 0) {
+            this.imagechosen++;
+        }
         if (this.imagechosen >= this.listeimages.length) {
             this.imagechosen = 0;
-            let seledctedImage = this.listeimages[this.imagechosen];
 
-            this.surface.image(seledctedImage, 0, 0, this.surface.width, this.surface.height);
         }
+        let selectedImage = this.listeimages[this.imagechosen];
+        this.surface.image(selectedImage, 0, 0, this.surface.width, this.surface.height);
         image(this.surface, this.cornerA.x, this.cornerA.y);
     }
 }
