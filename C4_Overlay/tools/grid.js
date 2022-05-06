@@ -4,19 +4,21 @@ class Grid {
     //   |       |
     //   |       |
     //   D ----- C
-    constructor(qttX, qttY) {
+    constructor(qttX, qttY, w, h) {
         this.visible = false;
         this.qttX = qttX;
         this.qttY = qttY;
+        this.width = w;
+        this.height = h;
     }
     toggleVisibility() {
         this.visible = !this.visible;
     }
     getW() {
-        return width / this.qttX;
+        return this.width / this.qttX;
     }
     getH() {
-        return height / this.qttY;
+        return this.height / this.qttY;
     }
     getXfrom01(x) {
         return floor(x*this.qttX);
@@ -70,17 +72,17 @@ class Grid {
     draw() {
         if(this.visible) {
             for (let x = 0; x < this.qttX + 1; x++) {
-                line(x*this.getW(), 0, x*this.getW(), height);
+                line(x*this.getW(), 0, x*this.getW(), this.height);
             }
             for (let y = 0; y < this.qttY + 1; y++) {
-                line(0, y*this.getH(), width, y*this.getH());
+                line(0, y*this.getH(), this.width, y*this.getH());
             }
         }
     }
     draw2() {
         if(this.visible) {
             for (let x = 0; x < this.qttX + 1; x++) {
-                line(x*this.getW(), 0, x*this.getW(), height);
+                line(x*this.getW(), 0, x*this.getW(), this.height);
             }
         }
     }
