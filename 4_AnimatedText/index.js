@@ -2,6 +2,7 @@ let grid;
 let font;
 let sourceA;
 let drawables = [];
+let mazeA;
 // P5JS preload
 function preload() {
     font = loadFont('assets/Graphik-Bold.otf');
@@ -23,6 +24,7 @@ function setup() {
         let newDrawable = new AnimatedText("open source", grid.getCornerA(x, y), grid.getCornerA(x+20, y+2), i/5);
         drawables.push(newDrawable);
     }
+    mazeA = new Maze(sourceA, grid.getCornerA(2, 2), grid.getCornerA(4, 4), 10, 10);
 }
 // P5JS draw
 function draw() {
@@ -39,6 +41,8 @@ function drawOnce() {
     drawables.forEach((t)=>{
         t.draw();
     });
+    // mazeA.drawSurface();
+    // mazeA.draw();
 }
 // P5JS windowResized
 function windowResized() {

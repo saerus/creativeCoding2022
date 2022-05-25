@@ -9,7 +9,6 @@ class Zik {
         this.fft = new p5.FFT();
         this.fft.setInput(this.track);
         //
-        this.track.loop();
         this.level;
         this.freqs = [];
         this.previousFreqs = [];
@@ -18,6 +17,9 @@ class Zik {
         this.rectWidth = width / this.freqNames.length;
         //
         this.listeners = {};
+    }
+    click() {
+        this.track.loop();
     }
     addListener(name, callback) {
         if (this.listeners[name]) {

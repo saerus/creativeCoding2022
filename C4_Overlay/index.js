@@ -20,12 +20,12 @@ function setup() {
 
     let tempUpLeft = grid.getCornerA(1, 1);
     let tempBottomRight = grid.getCornerA(10, 5);
-    let tempMaze = new Maze(imgHH, tempUpLeft, tempBottomRight, 10, 10);
+    let tempMaze = new Maze(imgHH, tempUpLeft, tempBottomRight, 20, 20, 0);
     drawables.push(tempMaze);
 
     tempUpLeft = grid.getCornerA(1, 6);
     tempBottomRight = grid.getCornerA(10, 10);
-    tempMaze = new Maze(imgDeg, tempUpLeft, tempBottomRight, 10, 10);
+    tempMaze = new Maze(imgDeg, tempUpLeft, tempBottomRight, 20, 20, 1);
     drawables.push(tempMaze);
 }
 // P5JS draw

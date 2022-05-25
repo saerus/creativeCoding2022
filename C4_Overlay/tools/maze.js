@@ -1,6 +1,6 @@
 //
 class Maze {
-    constructor(img, upLeft, bottomRight, qttX, qttY) {
+    constructor(img, upLeft, bottomRight, qttX, qttY, time) {
         this.img = img;
         this.upLeft = upLeft;
         this.bottomRight = bottomRight;
@@ -13,9 +13,11 @@ class Maze {
         this.surface.background(255, 0, 0);
         this.img.loadPixels();
         //
-        this.grid = new Grid(90, 80, this.w, this.h);
+        this.grid = new Grid(this.qttX, this.qttY, this.w, this.h);
+
+        this.time = time;
     }
-    
+
     getPixelFromNormalizedXY(x, y, img) {
         let finalX = floor(x*img.width);
         let finalY = floor(y*img.height);
@@ -23,6 +25,9 @@ class Maze {
     }
 
     draw() {
+        this.surface.clear();
+        this.time += 0.1;
+        let variation = Math.sin(this.time);
         for(let x=0; x<this.grid.qttX; x++) {
             for(let y=0; y<this.grid.qttY; y++) {
                 let normX = x/this.grid.qttX;
@@ -33,15 +38,10 @@ class Maze {
                 let g = this.img.pixels[pxl+1];
                 let b = this.img.pixels[pxl+2];
                 let a = this.img.pixels[pxl+3];
-                let s = r/10;
-                this.surface.ellipse(x*this.grid.getW()+this.grid.getW()/2, y*this.grid.getH()+this.grid.getH()/2, s, s);
+                let scale = r/10+variation*10;
+                this.surface.ellipse(x*this.grid.getW()+this.grid.getW()/2, y*this.grid.getH()+this.grid.getH()/2, scale, scale);
             }
         }
-
-
-        
-
-        
         image(this.surface, this.upLeft.x, this.upLeft.y);
     }
 }

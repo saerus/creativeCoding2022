@@ -14,8 +14,14 @@ class ClippedText {
         // this.surface.background(255, 0, 0);
         this.surface.push();
         this.surface.translate(this.w/2, this.h/2);
-        this.surface.rotate(this.rotation);
-        this.surface.text(this.string, 0, 0);
+        // this.surface.rotate(this.rotation);
+        for(let i=0; i<10; i++) {
+            this.surface.fill(50+i*5);
+            this.surface.scale(0.99);
+            this.surface.text(this.string, 0, 0);
+        }
+
+
         this.surface.pop();
         image(this.surface, this.cornerA.x, this.cornerA.y);
     }
